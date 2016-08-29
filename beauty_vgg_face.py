@@ -12,7 +12,8 @@ Disclaimer:
 Measuring attractiveness or beauty is highly subjective, so this is just an experiment
 In this dataset, I actually find many faces with low rating quite cute
 
-Caffe for Python must be installed for this example
+1. Caffe for Python must be installed for this example
+2. Caffe model must be downloaded from http://www.robots.ox.ac.uk/~vgg/software/vgg_face/
 
 """
 

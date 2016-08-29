@@ -135,21 +135,21 @@ input = T.tensor4(name='input')
 # initialize shared variable for weights.
 # 16 random filters
 rng = np.random.RandomState(23455)
-w_shp = (16, 3, 9, 9)
+w_shp = (24, 3, 9, 9)
 w_bound = np.sqrt(3 * 9 * 9)
 W_real = np.asarray(rng.uniform(low=-1.0 / w_bound,
                 high=1.0 / w_bound,
                 size=w_shp),
             dtype=input.dtype)
 
-plot_filters(W_real, sz=(4,4), title='Random filters', show=True)        
+plot_filters(W_real, sz=(6,4), title='Random filters', show=True)        
 
 W = theano.shared(W_real, name ='W')
 
 # convolution, max-pooling and ReLU
 f1 = theano.function([input], conv2d(input, W))
 f2 = theano.function([input], pool.pool_2d(input, (16, 16), ignore_border=True))
-feat_maps = relu(f2(f1(np.stack(image_list).transpose(0,3,1,2))))
+feat_maps = relu(f2(f1(np.asarray(image_list, dtype='float32').transpose(0,3,1,2))))
 feat_maps = feat_maps.reshape(feat_maps.shape[0],np.prod(feat_maps.shape[1:]))
 
 if PCA_dim > 0:

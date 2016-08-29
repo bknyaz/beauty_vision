@@ -36,8 +36,8 @@ from theano.tensor.nnet import relu
 start = timer()
 
 # options
-SVR_kernel='linear' 
-PCA_dim = 0 # the number of PCA components (0 - no PCA)
+SVR_kernel='rbf' 
+PCA_dim = 50 # the number of PCA components (0 - no PCA)
 color_Gabor = False # true to create colored Gabors (randomly)
 
 # load data
@@ -190,12 +190,12 @@ for i in range(W_real.shape[0]):
     W_real[i,:,:,:] = v.reshape(W_real[i,:,:,:].shape)
     
 plot_filters(W_real, sz=(3,8), title='Gabor filters (Re)', show=True)
-W = theano.shared(W_real, name ='W')
+W = theano.shared(np.asarray(W_real, dtype='float32'), name ='W')
 
 # convolution, max-pooling and ReLU
 f1 = theano.function([input], conv2d(input, W))
 f2 = theano.function([input], pool.pool_2d(input, (16, 16), ignore_border=True))
-feat_maps = relu(f2(f1(np.stack(image_list).transpose(0,3,1,2))))
+feat_maps = relu(f2(f1(np.asarray(image_list, dtype='float32').transpose(0,3,1,2))))
 feat_maps = feat_maps.reshape(feat_maps.shape[0],np.prod(feat_maps.shape[1:]))
 
 if PCA_dim > 0:
