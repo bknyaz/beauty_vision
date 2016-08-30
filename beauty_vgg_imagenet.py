@@ -101,6 +101,8 @@ caffe.set_mode_gpu()
 model_dir = '/home/boris/Project/3rd_party/models/vgg_cnn_s_caffe/'
 net_caffe = caffe.Net(model_dir + 'VGG_CNN_S_deploy.prototxt', model_dir + 'VGG_CNN_S.caffemodel', caffe.TEST)
 
+#edit VGG_CNN_S_deploy.prototxt to accept 1 image
+
 MEAN_RGB = np.array([129.1863,104.7624,93.5940]) # see vgg face matlab demo
 #MEAN_RGB = scipy.io.loadmat(model_dir + '/VGG_mean.mat')['image_mean']
 
