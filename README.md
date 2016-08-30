@@ -23,7 +23,7 @@ ConvNet [1] 					| - 							|  0.8187
 24 Gabor filters + PCA50+ rbf SVR 		| [beauty_baseline_gabors] (beauty_baseline_gabors.py) 	|  0.638
 24 colored Gabor filters + PCA50 + rbf SVR 	| [beauty_baseline_gabors] (beauty_baseline_gabors.py) 	|  0.614
 Vgg-ImageNet (pool5+fc6) [2] + linear SVR	| [beauty_vgg_imagenet] (beauty_vgg_imagenet.py) 	|  0.804
-Vgg-Face (pool5+fc6) [3] + linear SVR 		| [beauty_vgg_face] (beauty_vgg_face.py) 		|  0.856
+Vgg-Face (pool5+fc6) [3] + linear SVR 		| [beauty_vgg_face] (beauty_vgg_face.py) 		|  **0.856**
 
 
 ### Example of prediction
@@ -34,5 +34,7 @@ Vgg-Face (pool5+fc6) [3] + linear SVR 		| [beauty_vgg_face] (beauty_vgg_face.py)
 ### References
 
 [1] Xie, Duorui, Lingyu Liang, Lianwen Jin, Jie Xu, and Mengru Li. "SCUT-FBP: A Benchmark Dataset for Facial Beauty Perception." In Systems, Man, and Cybernetics (SMC), 2015 IEEE International Conference on, pp. 1821-1826. IEEE, 2015.
+
 [2] https://gist.github.com/ksimonyan/fd8800eeb36e276cd6f9
+
 [3] http://www.robots.ox.ac.uk/~vgg/software/vgg_face/
