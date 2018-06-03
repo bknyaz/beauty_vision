@@ -1,9 +1,9 @@
 # beauty_vision
-Recognition of human faces attractiveness (the SCUT-FBP dataset [1])
+Recognition of human faces attractiveness (the [SCUT-FBP dataset](http://www.hcii-lab.net/data/SCUT-FBP/) [1])
 
 ### Overview
 
-The SCUT-FBP dataset [1] contains 500 samples (images), for each image there is rating in the range (1,5) measuring beauty of an Asian female face.
+The [SCUT-FBP dataset](http://www.hcii-lab.net/data/SCUT-FBP/) [1] contains 500 samples (images), for each image there is rating in the range (1,5) measuring beauty of an Asian female face.
 
 Support Vector Regression (SVR) is trained on top of different features (in some cases projected by PCA with 50 components).
 Average Pearson correlation (PC) for 5 independent 10-fold cross validation tests is reported as in [1].
